@@ -15,9 +15,11 @@ jobs:
     runs-on: ubuntu-latest
     name: Build and Deploy Job
     steps:
-      - name: Change Ownership of .git Directory
+      - name: Set User Configurations
         run: |
-          sudo chown -R $USER:$USER .git/
+          git config --global user.name "leftarm"
+          git config --global user.email "jrm.kaewsiri@gmail.com"
+          chmod -R 777 .  # Change permissions as necessary
           
       - uses: actions/checkout@v4
         with:
